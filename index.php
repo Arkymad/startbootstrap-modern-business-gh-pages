@@ -135,20 +135,20 @@ $features = array(
                 <div class="container px-5 my-5">
                     <div class="row gx-5">
                         <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building.</h2></div>
-                        <?php foreach ($features as $feature) : ?>
                         
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 
+                                <?php foreach ($features as $feature) : ?>
                                 <div class="col mb-5 h-100">
                                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class= "<?= $feature-> imagem ?>"></i></div>
                                     <h2 class="h5"><?= $feature->titulo ?></h2>
                                     <p class="mb-0"><?= $feature->descricao ?></p>
                                                 
                                 </div>
+                                <?php endforeach; ?>
                                 
                             </div>
-                            <?php endforeach; ?>
                             
                         </div>
                         
