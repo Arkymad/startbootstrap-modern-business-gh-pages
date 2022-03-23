@@ -257,3 +257,6 @@ $features = array(
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+<!-- Foi dificil, mas saiu -->
