@@ -1,5 +1,6 @@
 <?php 
-    include_once('./base-de-dados.php'); 
+    include_once('./crud.php'); 
+    
 ?>
 
 <!DOCTYPE html>
@@ -77,11 +78,11 @@
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 
-                                <?php foreach ($features as $feature) : ?>
+                                <?php foreach (listaFeatures() as $feature) : ?>
                                 <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class= "<?= $feature-> imagem ?>"></i></div>
-                                    <h2 class="h5"><?= $feature->titulo ?></h2>
-                                    <p class="mb-0"><?= $feature->descricao ?></p>
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class= "<?= $feature["imagem"] ?>"></i></div>
+                                    <h2 class="h5"><?= $feature["titulo"] ?></h2>
+                                    <p class="mb-0"><?= $feature["descricao"] ?></p>
                                                 
                                 </div>
                                 <?php endforeach; ?>
@@ -128,23 +129,23 @@
                     </div>
                     
                     <div class="row gx-5">
-                    <?php foreach ($blogs as $blog) : ?>
+                    <?php foreach (listaBlogs() as $blog) : ?>
                         <div class="col-lg-4 mb-5">
                             <div class="card h-100 shadow border-0">
                             
-                                <img class="card-img-top" src="<?= $blog->imagem ?>" alt="..." />
+                                <img class="card-img-top" src="<?= $blog["imagem"] ?>" alt="..." />
                                 <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?= $blog->tema ?></div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?= $blog->titulo ?></h5></a>
-                                    <p class="card-text mb-0"><?= $blog->descricao ?></p>
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?= $blog["tema"] ?></div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?= $blog["titulo"] ?></h5></a>
+                                    <p class="card-text mb-0"><?= $blog["descricao"] ?></p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                             <div class="small">
-                                                <div class="fw-bold"><?= $blog->autor ?></div>
-                                                <div class="text-muted"><?= $blog->data ?> &middot; <?= $blog->tempo ?></div>
+                                                <div class="fw-bold"><?= $blog["autor"] ?></div>
+                                                <div class="text-muted"><?= $blog["data"] ?> &middot; <?= $blog["tempo"] ?></div>
                                             </div>
                                         </div>
                                     </div>
