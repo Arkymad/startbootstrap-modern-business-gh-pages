@@ -1,7 +1,6 @@
 <?php 
-    include_once('./crud.php'); 
-    
-?>
+include_once ('crud.php');
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,35 +20,10 @@
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                    <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                    <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            
+            <?php 
+            require("./header.php");
+            ?>
             <!-- Header-->
             <header class="bg-dark py-5">
                 <div class="container px-5">
@@ -69,32 +43,24 @@
                 </div>
             </header>
             <!-- Features section-->
-            
             <section class="py-5" id="features">
                 <div class="container px-5 my-5">
                     <div class="row gx-5">
                         <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building.</h2></div>
-                        
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">
                                 
-                                <?php foreach (listaFeatures() as $feature) : ?>
-                                <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class= "<?= $feature["imagem"] ?>"></i></div>
-                                    <h2 class="h5"><?= $feature["titulo"] ?></h2>
-                                    <p class="mb-0"><?= $feature["descricao"] ?></p>
-                                                
-                                </div>
+                                <?php foreach (listaServicos() as $servico) : ?>  
+                                    <div class="col mb-5 h-100">
+                                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi <?= $servico->classe ?>"></i></div>
+                                        <h2 class="h5">><?= $servico-> titulo ?></h2>
+                                        <p class="mb-0"><?= $servico-> descricao ?></p>
+                                    </div>                                
                                 <?php endforeach; ?>
-                                
                             </div>
-                            
                         </div>
-                        
                     </div>
-                    
                 </div>
-                
             </section>
             <!-- Testimonial section-->
             <div class="py-5 bg-light">
@@ -127,34 +93,32 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="row gx-5">
-                    <?php foreach (listaBlogs() as $blog) : ?>
-                        <div class="col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                            
-                                <img class="card-img-top" src="<?= $blog["imagem"] ?>" alt="..." />
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?= $blog["tema"] ?></div>
-                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?= $blog["titulo"] ?></h5></a>
-                                    <p class="card-text mb-0"><?= $blog["descricao"] ?></p>
-                                </div>
-                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                    <div class="d-flex align-items-end justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                            <div class="small">
-                                                <div class="fw-bold"><?= $blog["autor"] ?></div>
-                                                <div class="text-muted"><?= $blog["data"] ?> &middot; <?= $blog["tempo"] ?></div>
+                        <?php foreach (listaBlogs() as $blog) : ?>  
+                            <div class="col-lg-4 mb-5">
+                                <div class="card h-100 shadow border-0">
+                                    <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                                    <div class="card-body p-4">
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2"><?= $blog->classe ?></div>
+                                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3"><?= $blog->titulo ?></h5></a>
+                                        <p class="card-text mb-0"><?= $blog->descricao ?></p>
+                                    </div>
+                                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                        <div class="d-flex align-items-end justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                                <div class="small">
+                                                    <div class="fw-bold"><?= $blog->nome ?></div>
+                                                    <div class="text-muted"><?= $blog->data ?></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php endforeach; ?>
+                        <?php endforeach; ?> 
+                    </div>
                     <!-- Call to action-->
-                    <form id="contactForm" action="contato.php" method="post" data-sb-form-api-token="API_TOKEN">
                     <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
                         <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
                             <div class="mb-4 mb-xl-0">
@@ -163,10 +127,8 @@
                             </div>
                             <div class="ms-xl-4">
                                 <div class="input-group mb-2">
-                                    <input class="form-control" type="email" id="email" name="txtemail" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter"  data-sb-validations="required,email" />
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                                    <button class="btn btn-outline-light" id="button-newsletter" type="submit">Sign up</button>
+                                    <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" />
+                                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
                                 </div>
                                 <div class="small text-white-50">We care about privacy, and will never share your data.</div>
                             </div>
@@ -196,6 +158,3 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
-
-
-<!-- Foi dificil, mas saiu -->
