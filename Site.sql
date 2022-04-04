@@ -1,6 +1,6 @@
-create database if not exists modernbusiness;
+create database if not exists Site;
 
-use modernbusiness;
+use Site;
 
 create table servicos(
 id int primary key auto_increment,
@@ -18,10 +18,10 @@ data varchar(50) not null);
 
 
 insert into servicos (classe, titulo, descricao) values
-('bi-collection', 'Featured title', 'Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.'), 
-('bi-building', 'Featured title', 'Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.'), 
-('bi-toggles2', 'Featured title', 'Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.'), 
-('bi-toggles2', 'Featured title', 'Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.');
+('bi-collection', 'Teste 1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.'), 
+('bi-building', 'Teste 2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.'), 
+('bi-toggles2', 'Teste 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.'), 
+('bi-toggles2', 'Teste 4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.');
 
 insert into blogs (classe, titulo, descricao, nome, data) values
 ('News', 'Blog post title', 'Some quick example text to build on the card title and make up the bulk of the cards content.', 'Kelly Rowan', 'March 12, 2022 &middot; 6 min read'),
